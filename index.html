@@ -172,6 +172,17 @@ https://s1.webmshare.com/azr96.webm</code></pre>
 			$(this).attr('src', $(this).data('default-src'));
 		});
 		
+		$(window).on('keydown', function (e) {
+			if (e.which ===  37) {
+				Gallery.decrementIndex();
+				Gallery.showItem();
+			}
+			else if (e.which ===  39) {
+				Gallery.incrementIndex();
+				Gallery.showItem();
+			}
+		});
+		
 		$('.view-gallery-move').on('click', function () {
 			if ($(this).data('action') === 'prev') {
 				Gallery.decrementIndex();
