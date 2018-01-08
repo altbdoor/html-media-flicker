@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<script>
+		// https://cdn.jsdelivr.net/npm/bowser@1.9.1/src/bowser.min.js
+		!function(e,i,s){"undefined"!=typeof module&&module.exports?module.exports=s():"function"==typeof define&&define.amd?define("bowser",s):e.bowser=s()}(this,0,function(){function e(e){function i(i){var s=e.match(i);return s&&s.length>1&&s[1]||""}function s(i){var s=e.match(i);return s&&s.length>1&&s[2]||""}var o,r=i(/(ipod|iphone|ipad)/i).toLowerCase(),t=!/like android/i.test(e)&&/android/i.test(e),a=/nexus\s*[0-6]\s*/i.test(e),d=!a&&/nexus\s*[0-9]+/i.test(e),m=/CrOS/.test(e),v=/silk/i.test(e),p=/sailfish/i.test(e),l=/tizen/i.test(e),c=/(web|hpw)os/i.test(e),u=/windows phone/i.test(e),f=(/SamsungBrowser/i.test(e),!u&&/windows/i.test(e)),h=!r&&!v&&/macintosh/i.test(e),w=!t&&!p&&!l&&!c&&/linux/i.test(e),b=s(/edg([ea]|ios)\/(\d+(\.\d+)?)/i),g=i(/version\/(\d+(\.\d+)?)/i),k=/tablet/i.test(e)&&!/tablet pc/i.test(e),x=!k&&/[^-]mobi/i.test(e),y=/xbox/i.test(e);/opera/i.test(e)?o={name:"Opera",opera:n,version:g||i(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)}:/opr\/|opios/i.test(e)?o={name:"Opera",opera:n,version:i(/(?:opr|opios)[\s\/](\d+(\.\d+)?)/i)||g}:/SamsungBrowser/i.test(e)?o={name:"Samsung Internet for Android",samsungBrowser:n,version:g||i(/(?:SamsungBrowser)[\s\/](\d+(\.\d+)?)/i)}:/coast/i.test(e)?o={name:"Opera Coast",coast:n,version:g||i(/(?:coast)[\s\/](\d+(\.\d+)?)/i)}:/yabrowser/i.test(e)?o={name:"Yandex Browser",yandexbrowser:n,version:g||i(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)}:/ucbrowser/i.test(e)?o={name:"UC Browser",ucbrowser:n,version:i(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)}:/mxios/i.test(e)?o={name:"Maxthon",maxthon:n,version:i(/(?:mxios)[\s\/](\d+(?:\.\d+)+)/i)}:/epiphany/i.test(e)?o={name:"Epiphany",epiphany:n,version:i(/(?:epiphany)[\s\/](\d+(?:\.\d+)+)/i)}:/puffin/i.test(e)?o={name:"Puffin",puffin:n,version:i(/(?:puffin)[\s\/](\d+(?:\.\d+)?)/i)}:/sleipnir/i.test(e)?o={name:"Sleipnir",sleipnir:n,version:i(/(?:sleipnir)[\s\/](\d+(?:\.\d+)+)/i)}:/k-meleon/i.test(e)?o={name:"K-Meleon",kMeleon:n,version:i(/(?:k-meleon)[\s\/](\d+(?:\.\d+)+)/i)}:u?(o={name:"Windows Phone",osname:"Windows Phone",windowsphone:n},b?(o.msedge=n,o.version=b):(o.msie=n,o.version=i(/iemobile\/(\d+(\.\d+)?)/i))):/msie|trident/i.test(e)?o={name:"Internet Explorer",msie:n,version:i(/(?:msie |rv:)(\d+(\.\d+)?)/i)}:m?o={name:"Chrome",osname:"Chrome OS",chromeos:n,chromeBook:n,chrome:n,version:i(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)}:/edg([ea]|ios)/i.test(e)?o={name:"Microsoft Edge",msedge:n,version:b}:/vivaldi/i.test(e)?o={name:"Vivaldi",vivaldi:n,version:i(/vivaldi\/(\d+(\.\d+)?)/i)||g}:p?o={name:"Sailfish",osname:"Sailfish OS",sailfish:n,version:i(/sailfish\s?browser\/(\d+(\.\d+)?)/i)}:/seamonkey\//i.test(e)?o={name:"SeaMonkey",seamonkey:n,version:i(/seamonkey\/(\d+(\.\d+)?)/i)}:/firefox|iceweasel|fxios/i.test(e)?(o={name:"Firefox",firefox:n,version:i(/(?:firefox|iceweasel|fxios)[ \/](\d+(\.\d+)?)/i)},/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(e)&&(o.firefoxos=n,o.osname="Firefox OS")):v?o={name:"Amazon Silk",silk:n,version:i(/silk\/(\d+(\.\d+)?)/i)}:/phantom/i.test(e)?o={name:"PhantomJS",phantom:n,version:i(/phantomjs\/(\d+(\.\d+)?)/i)}:/slimerjs/i.test(e)?o={name:"SlimerJS",slimer:n,version:i(/slimerjs\/(\d+(\.\d+)?)/i)}:/blackberry|\bbb\d+/i.test(e)||/rim\stablet/i.test(e)?o={name:"BlackBerry",osname:"BlackBerry OS",blackberry:n,version:g||i(/blackberry[\d]+\/(\d+(\.\d+)?)/i)}:c?(o={name:"WebOS",osname:"WebOS",webos:n,version:g||i(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)},/touchpad\//i.test(e)&&(o.touchpad=n)):/bada/i.test(e)?o={name:"Bada",osname:"Bada",bada:n,version:i(/dolfin\/(\d+(\.\d+)?)/i)}:l?o={name:"Tizen",osname:"Tizen",tizen:n,version:i(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i)||g}:/qupzilla/i.test(e)?o={name:"QupZilla",qupzilla:n,version:i(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i)||g}:/chromium/i.test(e)?o={name:"Chromium",chromium:n,version:i(/(?:chromium)[\s\/](\d+(?:\.\d+)?)/i)||g}:/chrome|crios|crmo/i.test(e)?o={name:"Chrome",chrome:n,version:i(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)}:t?o={name:"Android",version:g}:/safari|applewebkit/i.test(e)?(o={name:"Safari",safari:n},g&&(o.version=g)):r?(o={name:"iphone"==r?"iPhone":"ipad"==r?"iPad":"iPod"},g&&(o.version=g)):o=/googlebot/i.test(e)?{name:"Googlebot",googlebot:n,version:i(/googlebot\/(\d+(\.\d+))/i)||g}:{name:i(/^(.*)\/(.*) /),version:s(/^(.*)\/(.*) /)},!o.msedge&&/(apple)?webkit/i.test(e)?(/(apple)?webkit\/537\.36/i.test(e)?(o.name=o.name||"Blink",o.blink=n):(o.name=o.name||"Webkit",o.webkit=n),!o.version&&g&&(o.version=g)):!o.opera&&/gecko\//i.test(e)&&(o.name=o.name||"Gecko",o.gecko=n,o.version=o.version||i(/gecko\/(\d+(\.\d+)?)/i)),o.windowsphone||!t&&!o.silk?!o.windowsphone&&r?(o[r]=n,o.ios=n,o.osname="iOS"):h?(o.mac=n,o.osname="macOS"):y?(o.xbox=n,o.osname="Xbox"):f?(o.windows=n,o.osname="Windows"):w&&(o.linux=n,o.osname="Linux"):(o.android=n,o.osname="Android");var S="";o.windows?S=function(e){switch(e){case"NT":return"NT";case"XP":return"XP";case"NT 5.0":return"2000";case"NT 5.1":return"XP";case"NT 5.2":return"2003";case"NT 6.0":return"Vista";case"NT 6.1":return"7";case"NT 6.2":return"8";case"NT 6.3":return"8.1";case"NT 10.0":return"10";default:return}}(i(/Windows ((NT|XP)( \d\d?.\d)?)/i)):o.windowsphone?S=i(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i):o.mac?S=(S=i(/Mac OS X (\d+([_\.\s]\d+)*)/i)).replace(/[_\s]/g,"."):r?S=(S=i(/os (\d+([_\s]\d+)*) like mac os x/i)).replace(/[_\s]/g,"."):t?S=i(/android[ \/-](\d+(\.\d+)*)/i):o.webos?S=i(/(?:web|hpw)os\/(\d+(\.\d+)*)/i):o.blackberry?S=i(/rim\stablet\sos\s(\d+(\.\d+)*)/i):o.bada?S=i(/bada\/(\d+(\.\d+)*)/i):o.tizen&&(S=i(/tizen[\/\s](\d+(\.\d+)*)/i)),S&&(o.osversion=S);var B=!o.windows&&S.split(".")[0];return k||d||"ipad"==r||t&&(3==B||B>=4&&!x)||o.silk?o.tablet=n:(x||"iphone"==r||"ipod"==r||t||a||o.blackberry||o.webos||o.bada)&&(o.mobile=n),o.msedge||o.msie&&o.version>=10||o.yandexbrowser&&o.version>=15||o.vivaldi&&o.version>=1||o.chrome&&o.version>=20||o.samsungBrowser&&o.version>=4||o.firefox&&o.version>=20||o.safari&&o.version>=6||o.opera&&o.version>=10||o.ios&&o.osversion&&o.osversion.split(".")[0]>=6||o.blackberry&&o.version>=10.1||o.chromium&&o.version>=20?o.a=n:o.msie&&o.version<10||o.chrome&&o.version<20||o.firefox&&o.version<20||o.safari&&o.version<6||o.opera&&o.version<10||o.ios&&o.osversion&&o.osversion.split(".")[0]<6||o.chromium&&o.version<20?o.c=n:o.x=n,o}function i(e){return e.split(".").length}function s(e,i){var s,o=[];if(Array.prototype.map)return Array.prototype.map.call(e,i);for(s=0;s<e.length;s++)o.push(i(e[s]));return o}function o(e){for(var o=Math.max(i(e[0]),i(e[1])),r=s(e,function(e){var r=o-i(e);return e+=new Array(r+1).join(".0"),s(e.split("."),function(e){return new Array(20-e.length).join("0")+e}).reverse()});--o>=0;){if(r[0][o]>r[1][o])return 1;if(r[0][o]!==r[1][o])return-1;if(0===o)return 0}}function r(i,s,r){var n=t;"string"==typeof s&&(r=s,s=void 0),void 0===s&&(s=!1),r&&(n=e(r));var a=""+n.version;for(var d in i)if(i.hasOwnProperty(d)&&n[d]){if("string"!=typeof i[d])throw new Error("Browser version in the minVersion map should be a string: "+d+": "+String(i));return o([a,i[d]])<0}return s}var n=!0,t=e("undefined"!=typeof navigator?navigator.userAgent||"":"");return t.test=function(e){for(var i=0;i<e.length;++i){var s=e[i];if("string"==typeof s&&s in t)return!0}return!1},t.isUnsupportedBrowser=r,t.compareVersions=o,t.check=function(e,i,s){return!r(e,i,s)},t._detect=e,t.detect=e,t});
+
+		(function (bs, rf) {
+			if (bs.msedge || (bs.safari && bs.version < 12)) {
+				rf = 'never';
+			}
+			document.write('<meta name="referrer" content="' + rf + '">');
+		})(bowser, 'no-referrer');
+	</script>
+	
+	<title>Media Flicker</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+	<style>
+		body {min-width: 320px;}
+		html, body, #view-container {height: 100%;}
+		#view-gallery {width: 100%; height: 100%;}
+		.view-gallery-item {
+			max-width: 100%; max-height: 100%;
+			width: auto; height: auto;
+		}
+		.view-gallery-move {width: 100px;}
+	</style>
+</head>
+<body class="bg-dark">
+	<div id="example-modal" class="modal fade">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Example file format</h5>
+					<button type="button" class="close" data-dismiss="modal">
+						&times;
+					</button>
+				</div>
+				<div class="modal-body">
+					<p><b>Guess Mode</b>, where the application attempts to guess the file type based on the URL provided in text file.</p>
+<pre><code>https://i.imgur.com/AdfU8FT.png
+https://s1.webmshare.com/azr96.webm</code></pre>
+					
+					<hr>
+					
+					<p><b>Descriptive Mode</b>, where the application gets informed on how to load the URL. (Essentially a JSON file.)</p>
+					<pre><code>[
+  { "url": "https://i.imgur.com/AdfU8FT.png", "type": "image" },
+  { "url": "https://webmshare.com/play/azr96", "type": "video" }
+]</code></pre>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="about-modal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">About</h5>
+					<button type="button" class="close" data-dismiss="modal">
+						&times;
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>
+						Was an idea from an Anonymous in 4chan, but I am too dumb to write a proper Android application.
+					</p>
+					
+					<p>
+						Uses the <code>no-referrer</code> policy in order to bypass some websites that do referrer checking to prevent hotlinking. Only <a href="https://caniuse.com/#feat=referrer-policy">latest browsers are supported</a>, of course.
+					</p>
+					
+					<ul>
+						<li><a href="https://getbootstrap.com/">Bootstrap v4</a></li>
+						<li><a href="https://jquery.com/">jQuery</a></li>
+						<li><a href="https://github.com/lancedikson/bowser">Bowser</a></li>
+						<li><a href="https://github.com/mathiasbynens/small">some super small files</a></li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="view-container" class="d-flex align-items-center justify-content-center text-white">
+		<div id="view-uploader" class="d-flex text-center flex-column">
+			<div class="mb-3">
+				<i>*Flick*</i> What's next?
+			</div>
+			
+			<label class="btn btn-primary btn-lg">
+				Upload text file
+				<input type="file" id="view-upload-file" hidden>
+			</label>
+			
+			<label class="btn btn-light">
+				<input type="checkbox" id="view-upload-muted" checked>
+				Mute videos?
+			</label>
+			
+			<div class="my-3">
+				<a href="#example-modal" class="text-info" data-toggle="modal">See example file format</a>
+			</div>
+			
+			<a href="#about-modal" class="text-info" data-toggle="modal">About</a>
+		</div>
+		
+		<div id="view-gallery" class="d-none flex flex-column align-items-center justify-content-between">
+			<div class="d-flex"></div>
+			<img src="https://cdn.rawgit.com/mathiasbynens/small/0ca3c511/gif.gif" class="d-none view-gallery-item">
+			<video src="https://cdn.rawgit.com/mathiasbynens/small/0ca3c511/webm.webm" class="d-none view-gallery-item" controls autoplay muted></video>
+			<div class="d-flex">
+				<div class="btn-group py-1">
+					<button type="button" class="btn btn-sm btn-primary view-gallery-move" data-action="prev">Prev</button>
+					<button type="button" class="btn btn-sm btn-primary view-gallery-move" data-action="next">Next</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+	<script>
+		var Gallery = (function () {
+			var galleryList = [];
+			var galleryIndex = 0;
+			var videoElem;
+			var imageElem;
+			
+			return {
+				setVideoElem: function (x) { videoElem = x },
+				setImageElem: function (x) { imageElem = x },
+				
+				setList: function (x) { galleryList = x },
+				resetIndex: function () { galleryIndex = 0 },
+				
+				incrementIndex: function () {
+					galleryIndex = Math.min((galleryList.length - 1), (galleryIndex + 1));
+				},
+				decrementIndex: function () {
+					galleryIndex = Math.max(0, (galleryIndex - 1));
+				},
+				
+				showItem: function () {
+					$(videoElem).add(imageElem).removeClass('d-flex').addClass('d-none').trigger('reset-src');
+					
+					var galleryItem = galleryList[galleryIndex];
+					if (galleryItem.type === 'video') {
+						$(videoElem).removeClass('d-none').addClass('d-flex').attr('src', galleryItem.url);
+					}
+					else {
+						$(imageElem).removeClass('d-none').addClass('d-flex').attr('src', galleryItem.url);
+					}
+					
+				},
+			};
+		})();
+		
+		$('.view-gallery-item').each(function (index, item) {
+			$(item).data('default-src', $(item).attr('src'));
+		}).on('reset-src', function () {
+			$(this).attr('src', $(this).data('default-src'));
+		});
+		
+		$('.view-gallery-move').on('click', function () {
+			if ($(this).data('action') === 'prev') {
+				Gallery.decrementIndex();
+			}
+			else {
+				Gallery.incrementIndex();
+			}
+			
+			Gallery.showItem();
+		});
+		
+		$('#view-upload-muted').on('change', function () {
+			if ($(this).is(':checked')) {
+				$('video.view-gallery-item').attr('muted', 'muted');
+			}
+			else {
+				$('video.view-gallery-item').removeAttr('muted');
+			}
+		}).trigger('change');
+		
+		$('#view-upload-file').on('change', function () {
+			var file = this.files[0];
+			
+			if (file) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					var galleryList = [];
+					
+					try {
+						galleryList = JSON.parse(e.target.result);
+					}
+					catch (ex) {
+						var lines = e.target.result.split(/[\r\n]+/g);
+						var linesLength = lines.length;
+						var videoRegex = /\.(webm|mp4)$/i;
+						var imageRegex = /\.(png|jpe?g|gif|bmp|webp)$/i;
+						
+						for (var i=0; i<linesLength; i++) {
+							if (lines[i]) {
+								var galleryItem = {
+									url: lines[i],
+									type: null,
+								};
+								
+								if (videoRegex.test(lines[i])) {
+									galleryItem['type'] = 'video';
+								}
+								else if (imageRegex.test(lines[i])) {
+									galleryItem['type'] = 'image';
+								}
+								
+								if (galleryItem['type']) {
+									galleryList.push(galleryItem);
+								}
+							}
+						}
+					}
+					
+					if (galleryList.length === 0) {
+						alert('Error parsing text file');
+					}
+					else {
+						Gallery.setVideoElem($('video.view-gallery-item'));
+						Gallery.setImageElem($('img.view-gallery-item'));
+						
+						Gallery.setList(galleryList);
+						Gallery.resetIndex();
+						Gallery.showItem();
+						
+						$('#view-uploader').removeClass('d-flex').addClass('d-none');
+						$('#view-gallery').removeClass('d-none').addClass('d-flex');
+					}
+				};
+				reader.readAsText(file);
+			}
+		});
+		
+	</script>
+</body>
+</html>
