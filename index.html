@@ -21,13 +21,18 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 	<style>
 		body {min-width: 320px;}
-		html, body, #view-container {height: 100%;}
-		#view-gallery {width: 100%; height: 100%;}
+		html, body {height: 100%;}
+		#view-uploader, #view-gallery {width: 100%; height: 100%;}
+		#view-gallery-item-container {
+			width: 100%; height: 100%; overflow: auto;
+			flex-grow: 1; flex-shrink: 1;
+		}
 		.view-gallery-item {
 			max-width: 100%; max-height: 100%;
 			width: auto; height: auto;
 		}
-		.view-gallery-move {width: 100px;}
+		#view-gallery > .pagination {flex-shrink: 0;}
+		.view-gallery-move {width: 80px;}
 	</style>
 </head>
 <body class="bg-dark">
@@ -92,40 +97,50 @@ https://s1.webmshare.com/azr96.webm</code></pre>
 		</div>
 	</div>
 	
-	<div id="view-container" class="d-flex align-items-center justify-content-center text-white">
-		<div id="view-uploader" class="d-flex text-center flex-column">
-			<div class="mb-3">
-				<i>*Flick*</i> What's next?
-			</div>
-			
-			<label class="btn btn-primary btn-lg">
-				Upload text file
-				<input type="file" id="view-upload-file" hidden>
-			</label>
-			
-			<label class="btn btn-light">
-				<input type="checkbox" id="view-upload-muted" checked>
-				Mute videos?
-			</label>
-			
-			<div class="my-3">
-				<a href="#example-modal" class="text-info" data-toggle="modal">See example file format</a>
-			</div>
-			
-			<a href="#about-modal" class="text-info" data-toggle="modal">About</a>
+	<div id="view-uploader" class="d-flex align-items-center justify-content-center flex-column">
+		<div class="mb-3 text-white">
+			<i>*Flick*</i> What's next?
 		</div>
 		
-		<div id="view-gallery" class="d-none flex flex-column align-items-center justify-content-between">
-			<div class="d-flex"></div>
+		<label class="btn btn-primary btn-lg">
+			Upload text file
+			<input type="file" id="view-upload-file" hidden>
+		</label>
+		
+		<label class="btn btn-light">
+			<input type="checkbox" id="view-upload-muted" checked>
+			Mute videos?
+		</label>
+		
+		<div class="my-3">
+			<a href="#example-modal" class="text-info" data-toggle="modal">See example file format</a>
+		</div>
+		
+		<a href="#about-modal" class="text-info" data-toggle="modal">About</a>
+	</div>
+	
+	<div id="view-gallery" class="d-none flex-column align-items-center justify-content-between">
+		<div></div>
+		
+		<div id="view-gallery-item-container" class="d-flex align-items-center justify-content-center">
 			<img src="https://cdn.rawgit.com/mathiasbynens/small/0ca3c511/gif.gif" class="d-none view-gallery-item">
 			<video src="https://cdn.rawgit.com/mathiasbynens/small/0ca3c511/webm.webm" class="d-none view-gallery-item" controls autoplay muted></video>
-			<div class="d-flex">
-				<div class="btn-group py-1">
-					<button type="button" class="btn btn-sm btn-primary view-gallery-move" data-action="prev">Prev</button>
-					<button type="button" class="btn btn-sm btn-primary view-gallery-move" data-action="next">Next</button>
-				</div>
-			</div>
 		</div>
+		
+		<ul class="pagination pagination-sm py-1 m-0">
+			<li class="page-item">
+				<a href="javascript:void(0)" class="page-link view-gallery-move" data-action="prev">Prev</a>
+			</li>
+			<li class="page-item disabled">
+				<span class="page-link">
+					<span id="view-gallery-index">0</span> / <span id="view-gallery-total">0</span>
+				</span>
+			</li>
+			<li class="page-item text-right">
+				<a href="javascript:void(0)" class="page-link view-gallery-move" data-action="next">Next</a>
+			</li>
+		</ul>
+		
 	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -136,10 +151,14 @@ https://s1.webmshare.com/azr96.webm</code></pre>
 			var galleryIndex = 0;
 			var videoElem;
 			var imageElem;
+			var indexElem;
+			var totalElem;
 			
 			return {
 				setVideoElem: function (x) { videoElem = x },
 				setImageElem: function (x) { imageElem = x },
+				setIndexElem: function (x) { indexElem = x },
+				setTotalElem: function (x) { totalElem = x },
 				
 				setList: function (x) { galleryList = x },
 				resetIndex: function () { galleryIndex = 0 },
@@ -152,16 +171,18 @@ https://s1.webmshare.com/azr96.webm</code></pre>
 				},
 				
 				showItem: function () {
-					$(videoElem).add(imageElem).removeClass('d-flex').addClass('d-none').trigger('reset-src');
+					$(videoElem).add(imageElem).removeClass('d-inline-block').addClass('d-none').trigger('reset-src');
 					
 					var galleryItem = galleryList[galleryIndex];
 					if (galleryItem.type === 'video') {
-						$(videoElem).removeClass('d-none').addClass('d-flex').attr('src', galleryItem.url);
+						$(videoElem).removeClass('d-none').addClass('d-inline-block').attr('src', galleryItem.url);
 					}
 					else {
-						$(imageElem).removeClass('d-none').addClass('d-flex').attr('src', galleryItem.url);
+						$(imageElem).removeClass('d-none').addClass('d-inline-block').attr('src', galleryItem.url);
 					}
 					
+					$(indexElem).text(galleryIndex + 1);
+					$(totalElem).text(galleryList.length);
 				},
 			};
 		})();
@@ -247,6 +268,8 @@ https://s1.webmshare.com/azr96.webm</code></pre>
 					else {
 						Gallery.setVideoElem($('video.view-gallery-item'));
 						Gallery.setImageElem($('img.view-gallery-item'));
+						Gallery.setIndexElem($('#view-gallery-index'));
+						Gallery.setTotalElem($('#view-gallery-total'));
 						
 						Gallery.setList(galleryList);
 						Gallery.resetIndex();
