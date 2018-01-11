@@ -5,7 +5,7 @@ Was an idea from an Anonymous in 4chan, but I am too dumb to write a proper Andr
 Uses the `no-referrer` policy in order to bypass some websites that do referrer checking to prevent hotlinking. Only [latest browsers are supported](https://caniuse.com/#feat=referrer-policy), of course.
 
 - [Bootstrap v4](https://getbootstrap.com/)
-- [jQuery](https://jquery.com/)
+- [Zepto.js](http://zeptojs.com/)
 - [Bowser](https://github.com/lancedikson/bowser)
 - [some super small files](https://github.com/mathiasbynens/small)
 
