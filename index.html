@@ -36,7 +36,7 @@
 	</style>
 </head>
 <body class="bg-dark">
-	<div id="example-modal" class="modal fade">
+	<div id="example-modal" class="modal">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -65,7 +65,7 @@ https://s1.webmshare.com/azr96.webm</code></pre>
 		</div>
 	</div>
 	
-	<div id="about-modal" class="modal fade">
+	<div id="about-modal" class="modal">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -85,9 +85,10 @@ https://s1.webmshare.com/azr96.webm</code></pre>
 					
 					<ul>
 						<li><a href="https://getbootstrap.com/">Bootstrap v4</a></li>
-						<li><a href="https://jquery.com/">jQuery</a></li>
+						<li><a href="http://zeptojs.com/">Zepto.js</a></li>
 						<li><a href="https://github.com/lancedikson/bowser">Bowser</a></li>
 						<li><a href="https://github.com/mathiasbynens/small">some super small files</a></li>
+						<li class="mt-3"><a href="https://github.com/altbdoor/html-media-flicker">GitHub</a></li>
 					</ul>
 				</div>
 				<div class="modal-footer">
@@ -143,9 +144,30 @@ https://s1.webmshare.com/azr96.webm</code></pre>
 		
 	</div>
 	
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+	<div class="modal-backdrop d-none"></div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/zepto@1.2.0/dist/zepto.min.js"></script>
 	<script>
+		$('[data-toggle="modal"]').on('click', function (e) {
+			e.preventDefault();
+			var target = $( $(this).attr('href') );
+			var backdrop = $('.modal-backdrop');
+			
+			$(document.body).addClass('modal-open');
+			$(backdrop).addClass('show').removeClass('d-none');
+			$(target).addClass('show d-block');
+		});
+		
+		$('[data-dismiss="modal"]').on('click', function (e) {
+			e.preventDefault();
+			var target = $('.modal.show');
+			var backdrop = $('.modal-backdrop');
+			
+			$(document.body).removeClass('modal-open');
+			$(backdrop).removeClass('show').addClass('d-none');
+			$(target).removeClass('show d-block');
+		});
+		
 		var Gallery = (function () {
 			var galleryList = [];
 			var galleryIndex = 0;
